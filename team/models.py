@@ -1,3 +1,65 @@
 from django.db import models
+from django.urls import reverse
 
-# Create your models here.
+
+class Team(models.Model):
+    status_choice = (
+        ('B', 'busy'),
+        ('A', 'available')
+    )
+    name = models.CharField(max_length=250, null=False, blank=False, unique=True)
+    bio = models.TextField(null=True, blank=True)
+    status = models.CharField(max_length=1, choices=status_choice, default='A')
+    create_time = models.DateField(auto_now=True)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('teams_detail', args=[str(self.id)])
+
+
+class Skill(models.Model):
+    score_quality = (
+        ('P', 'perfect'),
+        ('M', 'medium'),
+        ('L', 'little')
+    )
+    name = models.CharField(max_length=250, null=False, blank=False)
+    score = models.CharField(max_length=1, choices=score_quality)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+
+class Project(models.Model):
+    name = models.CharField(max_length=250, null=False, blank=False)
+    bio = models.TextField(null=True, blank=True)
+    start_time = models.DateField(null=False)
+    end_time = models.DateField(null=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+
+class SocialMedia(models.Model):
+    social_media = (
+        ('I', 'instagram'),
+        ('L', 'linkedin'),
+        ('E', 'email')
+    )
+    name = models.CharField(max_length=1, choices=social_media, verbose_name='social media')
+    link = models.TextField()
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+
+
