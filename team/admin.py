@@ -4,7 +4,7 @@ from . import models
 
 @admin.register(models.Project)
 class Projects(admin.ModelAdmin):
-    list_display = ('name', 'bio', 'start_time', 'end_time', 'team')
+    list_display = ('name', 'description', 'start_time', 'end_time', 'team')
     list_filter = ('team',)
     fieldsets = (
         ('information', {

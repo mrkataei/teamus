@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from account.models import Member
 
 
 class Team(models.Model):
@@ -8,7 +9,8 @@ class Team(models.Model):
         ('A', 'available')
     )
     name = models.CharField(max_length=250, null=False, blank=False, unique=True)
-    bio = models.TextField(null=True, blank=True)
+    members = models.ManyToManyField(Member)
+    bio = models.TextField(max_length=500, null=True, blank=True)
     status = models.CharField(max_length=1, choices=status_choice, default='A')
     create_time = models.DateField(auto_now=True)
     objects = models.Manager()
@@ -37,7 +39,7 @@ class Skill(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=250, null=False, blank=False)
-    bio = models.TextField(null=True, blank=True)
+    description = models.TextField(max_length=500, null=True, blank=True)
     start_time = models.DateField(null=False)
     end_time = models.DateField(null=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
@@ -54,12 +56,9 @@ class SocialMedia(models.Model):
         ('E', 'email')
     )
     name = models.CharField(max_length=1, choices=social_media, verbose_name='social media')
-    link = models.TextField()
+    link = models.TextField(max_length=100)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     objects = models.Manager()
 
     def __str__(self):
         return self.name
-
-
-
