@@ -13,6 +13,8 @@ class Team(models.Model):
     bio = models.TextField(max_length=500, null=True, blank=True)
     status = models.CharField(max_length=1, choices=status_choice, default='A')
     create_time = models.DateField(auto_now=True)
+    owner = models.ForeignKey(Member, null=False, blank=False, on_delete=models.CASCADE, related_name='creator')
+
     objects = models.Manager()
 
     def __str__(self):

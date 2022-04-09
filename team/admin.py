@@ -50,4 +50,4 @@ class SocialInline(admin.TabularInline):
 class TeamAdmin(admin.ModelAdmin):
     list_display = ('name', 'status')
     list_filter = ('status', 'create_time')
-    inlines = [SocialInline, SkillsInline]
+    inlines = [SocialInline, SkillsInline, ProjectsInline]
