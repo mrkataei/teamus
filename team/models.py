@@ -8,7 +8,8 @@ class Team(models.Model):
         ('B', 'busy'),
         ('A', 'available')
     )
-    name = models.CharField(max_length=250, null=False, blank=False, unique=True)
+    name = models.CharField(primary_key=True, max_length=250, null=False, blank=False, unique=True)
+    photo = models.ImageField(upload_to='teams-photo', null=True)
     members = models.ManyToManyField(Member)
     bio = models.TextField(max_length=500, null=True, blank=True)
     status = models.CharField(max_length=1, choices=status_choice, default='A')

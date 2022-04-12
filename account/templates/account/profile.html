@@ -1,13 +1,42 @@
-<!DOCTYPE html>
 {% extends "base_generic.html" %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>profile</title>
-</head>
-<body>
 {% block content %}
-    <p>{{profile.username}}</p>
+{% if profile.photo%}
+    <img src="{{ profile.photo.url }}" id="img">
+{% endif %}
+<h1>{{profile.username}}</h1>
+<h2>Skills</h2>
+<h3>
+    {% for skill in skills %}
+    <ul>
+            <li>{{skill.name}}</li>
+            <p>{{skill.get_score_display}}</p>
+            <hr>
+    </ul>
+    {% endfor %}
+</h3>
+<h2>Projects</h2>
+<h3>
+    {% for project in projects %}
+        <ul>
+            <li>{{project.name}}</li>
+            <p>Description : {{project.description}}</p>
+            <p>{{project.start_time}}</p>
+            <p>{{project.end_time}}</p>
+            <hr>
+        </ul>
+    {% endfor %}
+</h3>
+<style>
+    img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+</style>
 {% endblock %}
-</body>
-</html>
+

@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-()bt%9ag=2=q*r3#^owdri&)o5h!e7_g&(lar61rar*h6hva@*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '127.0.0.1']
 
 # Application definition
 
@@ -79,6 +79,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
     }
 }
 
@@ -130,3 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.Member'
 
 LOGIN_REDIRECT_URL = '/'
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+

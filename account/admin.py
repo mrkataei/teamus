@@ -8,7 +8,7 @@ class Projects(admin.ModelAdmin):
     list_filter = ('user',)
     fieldsets = (
         ('information', {
-            'fields': ('name', 'bio')
+            'fields': ('name', 'description')
         }),
         ('history', {
             'fields': ('start_time', 'end_time')

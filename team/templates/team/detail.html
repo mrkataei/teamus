@@ -1,5 +1,42 @@
 {% extends "team/base_generic.html" %}
 {% block content %}
+{% if team.photo%}
+    <img src="{{ team.photo.url }}" id="img">
+{% endif %}
 <h1>{{team.name}}</h1>
+<h2>Skills</h2>
+<h3>
+    {% for skill in skills %}
+    <ul>
+            <li>{{skill.name}}</li>
+            <p>{{skill.get_score_display}}</p>
+            <hr>
+    </ul>
+    {% endfor %}
+</h3>
+<h2>Projects</h2>
+<h3>
+    {% for project in projects %}
+        <ul>
+            <li>{{project.name}}</li>
+            <p>Description : {{project.description}}</p>
+            <p>{{project.start_time}}</p>
+            <p>{{project.end_time}}</p>
+            <hr>
+        </ul>
+    {% endfor %}
+</h3>
+<style>
+    img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
 
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+</style>
 {% endblock %}
+

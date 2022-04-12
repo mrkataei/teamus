@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class Member(AbstractUser):
     bio = models.TextField(max_length=500, blank=True)
     username = models.CharField(primary_key=True, max_length=150, unique=True)
+    photo = models.ImageField(upload_to='users-photo', null=True)
 
     def __str__(self):
         return self.username

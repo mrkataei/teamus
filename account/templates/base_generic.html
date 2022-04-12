@@ -11,7 +11,7 @@
 
     <!-- Add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account_styles.css' %}">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <div class="col-sm-2">
             {% block sidebar %}
             <ul class="sidebar-nav">
-                <li><a href="$">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="{% url 'team:index' %}">All teams</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'account:account-detail' pk=user.get_username %}">Profile</a></li>
