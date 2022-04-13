@@ -1,15 +1,17 @@
-from django.forms import ModelForm
+from django import forms
 from team.models import Team
 
 
-class CreateTeam(ModelForm):
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__()
-    #     # self.fields['photo'].required = False
+class TeamCreate(forms.ModelForm):
+
     def __init__(self, *args, **kwargs):
-        super(CreateTeam, self).__init__(*args, **kwargs)
-        self.fields['owner'].disabled = True
+        super(TeamCreate, self).__init__(*args, **kwargs)
 
     class Meta:
         model = Team
-        fields = '__all__'
+        fields = ('name', 'bio', 'status', 'owner')
+        widgets = {
+            'owner': forms.HiddenInput()
+        }
+
+
