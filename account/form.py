@@ -9,7 +9,7 @@ class TeamCreate(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ('name', 'bio', 'status', 'owner')
+        fields = ('name', 'members', 'bio', 'status', 'owner')
         widgets = {
             'owner': forms.HiddenInput()
         }

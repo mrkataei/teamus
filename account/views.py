@@ -19,6 +19,8 @@ class AccountDetail(LoginRequiredMixin, generic.DetailView):
         context = super(AccountDetail, self).get_context_data(**kwargs)
         context['skills'] = models.Skill.objects.filter(user=context['profile'].username)
         context['projects'] = models.Project.objects.filter(user=context['profile'].username)
+        context['teams'] = Team.objects.filter(owner=context['profile'].username)
+        context['members'] = Team.objects.filter(members=context['profile'].username)
         return context
 
 
@@ -51,6 +53,15 @@ class TeamUpdate(LoginRequiredMixin, UpdateView):
     fields = ['bio']
 
 
-class AuthorDelete(LoginRequiredMixin, DeleteView):
+class TeamDelete(LoginRequiredMixin, DeleteView):
     model = Team
     success_url = reverse_lazy('team')
+
+
+class ProfileEdit(LoginRequiredMixin, UpdateView):
+    model = models.Member
+    template_name = 'account/edit-profile.html'
+    fields = ['first_name', 'last_name', 'email', 'bio']
+
+    def get_success_url(self):
+        return f'/account/{self.request.user.username}'
