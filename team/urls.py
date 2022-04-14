@@ -1,9 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 
 app_name = 'team'
 urlpatterns = [
-    url(r'^$', views.Index.as_view(), name='index'),
-    url(r'^(?P<pk>[-\w]+)/$', views.TeamDetail.as_view(), name='team-detail'),
+    path('', views.Index.as_view(), name='index'),
+    path('<pk>/', views.TeamDetail.as_view(), name='team-detail'),
 ]
