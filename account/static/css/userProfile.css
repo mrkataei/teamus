@@ -1,0 +1,55 @@
+/* header */
+
+div.header {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+div.home_icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fffefe;
+    width: 50px;
+    height: 50px;
+    margin-left: 60px;
+}
+
+div.home_icon_container:hover {
+    cursor: pointer;
+}
+
+div.home_icon_container img {
+    width: 35px;
+    height: 35px;
+}
+
+div.logo {
+    margin-left: auto;
+}
+div.white_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #fffdfd;
+    border-radius: 10px;
+}
+
+/* main */
+img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}

@@ -1,62 +1,55 @@
 {% extends "base_generic.html" %}
+{% load static %}
+{% block title %}<title>Profile</title>{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/userProfile.css' %}">{% endblock %}
 {% block content %}
-{% if profile.photo%}
-    <img src="{{ profile.photo.url }}" id="img">
-{% endif %}
-<h1>{{profile.username}}</h1>
-<a href="{% url 'account:edit-profile'  pk=user.get_username%}">edit profile</a>
-<h2>Skills</h2>
-<h3>
-    {% for skill in skills %}
-    <ul>
-            <li>{{skill.name}}</li>
-            <p>{{skill.get_score_display}}</p>
-            <hr>
-    </ul>
-    {% endfor %}
-</h3>
-<h2>Projects</h2>
-<h3>
-    {% for project in projects %}
-        <ul>
-            <li>{{project.name}}</li>
-            <p>Description : {{project.description}}</p>
-            <p>{{project.start_time}}</p>
-            <p>{{project.end_time}}</p>
-            <hr>
-        </ul>
-    {% endfor %}
-</h3>
-<h2>Teams</h2>
-<h3>
-    {% for team in teams %}
-        <ul>
-            <li><a href="{% url 'team:team-detail' pk=team.name %}">{{team.name}}</a></li>
-            <hr>
-        </ul>
-    {% endfor %}
-</h3>
-</h3>
-<h2>Members of</h2>
-<h3>
-    {% for member in members %}
-        <ul>
-            <li><a href="{% url 'team:team-detail' pk=member.name %}">{{member.name}}</a></li>
-            <hr>
-        </ul>
-    {% endfor %}
-</h3>
-<style>
-    img {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-    }
-</style>
+<div class="white_container">
+    {% if profile.photo%}
+        <img src="{{ profile.photo.url }}" id="img">
+    {% endif %}
+<!--    <h1>{{profile.username}}</h1>-->
+<!--    <a href="{% url 'account:edit-profile'  pk=user.get_username%}">edit profile</a>-->
+<!--    <h2>Skills</h2>-->
+<!--    <h3>-->
+<!--        {% for skill in skills %}-->
+<!--        <ul>-->
+<!--                <li>{{skill.name}}</li>-->
+<!--                <p>{{skill.get_score_display}}</p>-->
+<!--                <hr>-->
+<!--        </ul>-->
+<!--        {% endfor %}-->
+<!--    </h3>-->
+<!--    <h2>Projects</h2>-->
+<!--    <h3>-->
+<!--        {% for project in projects %}-->
+<!--            <ul>-->
+<!--                <li>{{project.name}}</li>-->
+<!--                <p>Description : {{project.description}}</p>-->
+<!--                <p>{{project.start_time}}</p>-->
+<!--                <p>{{project.end_time}}</p>-->
+<!--                <hr>-->
+<!--            </ul>-->
+<!--        {% endfor %}-->
+<!--    </h3>-->
+<!--    <h2>Teams</h2>-->
+<!--    <h3>-->
+<!--        {% for team in teams %}-->
+<!--            <ul>-->
+<!--                <li><a href="{% url 'team:team-detail' pk=team.name %}">{{team.name}}</a></li>-->
+<!--                <hr>-->
+<!--            </ul>-->
+<!--        {% endfor %}-->
+<!--    </h3>-->
+<!--    </h3>-->
+<!--    <h2>Members of</h2>-->
+<!--    <h3>-->
+<!--        {% for member in members %}-->
+<!--            <ul>-->
+<!--                <li><a href="{% url 'team:team-detail' pk=member.name %}">{{member.name}}</a></li>-->
+<!--                <hr>-->
+<!--            </ul>-->
+<!--        {% endfor %}-->
+<!--    </h3>-->
+</div>
 {% endblock %}
 

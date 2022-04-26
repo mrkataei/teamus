@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    {% load static %}
     {% block title %}<title>Teamus</title>{% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <!-- Add additional CSS in static file -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account_styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'icon/favicon.svg' %}" type="image/x-icon">
+
+
 </head>
 
 <body>
@@ -24,11 +25,11 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="{% url 'team:index' %}">All teams</a></li>
                 {% if user.is_authenticated %}
-                     <li><a href="{% url 'account:account-detail' pk=user.get_username %}">Profile</a></li>
-                     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                <li><a href="{% url 'account:account-detail' pk=user.get_username %}">Profile</a></li>
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
                 {% else %}
-                     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-               {% endif %}
+                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                {% endif %}
             </ul>
             {% endblock %}
         </div>

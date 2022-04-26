@@ -1,38 +1,51 @@
 {% extends "base_generic.html" %}
-
+{% load static %}
+{% block title %}<title>Login</title>{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/login.css' %}">{% endblock %}
 {% block content %}
-
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
+    <body>
+        <div class="main">
+            <div class="white_container">
+                <div class="beige_container">
+                    <div class="aligner">
+                        <div class="bold_italic_dark_blue_16">Sign in</div>
+                        <div class="form_container">
+                            <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <div class="italic_black_14">username</div>
+                                <input type="text" name="username" id="user" placeholder="enter your username">
+                                <div class="italic_black_14" style="margin-top: 30px;">password</div>
+                                <input type="password" name="password" id="pass" placeholder="enter your password">
+                                <div class="sign_in_button">
+                                    <input type="submit" value="Sign in" class="sign_in_button"/>
+                                    <input type="hidden" name="next" value="{{ next }}" />
+                                </div>
+                                <div class="side_by_side_text">
+                                    <div class="italic_light_blue_14">dont have account?</div>
+                                    <div class="italic_blue_14">sign up</div>
+                                </div>
+                                <div class="italic_light_blue_14 center_of_beige_container">
+                                    <a href="{% url 'password_reset' %}">Lost password?</a>
+                                </div>
+                                <div>
+                                    {% if form.errors %}
+                                        <p>Your username and password didn't match. Please try again.</p>
+                                    {% endif %}
+                                    {% if next %}
+                                        {% if user.is_authenticated %}
+                                            <p>Your account doesn't have access to this page. To proceed,
                 please login with an account that has access.</p>
-        {% else %}
-            <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-
-        <div>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
+                                        {% else %}
+                                            <p>Please login to see this page.</p>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </div>
-
-        <div>
-            <input type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next }}" />
-        </div>
-    </form>
-
-    {# Assumes you setup the password_reset view in your URLconf #}
-        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    </body>
 {% endblock %}
+

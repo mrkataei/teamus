@@ -1,0 +1,149 @@
+div.header {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+div.home_icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fffefe;
+    width: 50px;
+    height: 50px;
+    margin-left: 60px;
+}
+
+div.home_icon_container:hover {
+    cursor: pointer;
+}
+
+div.home_icon_container img {
+    width: 35px;
+    height: 35px;
+}
+
+div.logo {
+    margin-left: auto;
+}
+
+
+
+/* main */
+
+div.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 983px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+div.main div.white_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 930px;
+    width: 600px;
+    background-color: #fffdfd;
+    border-radius: 10px;
+}
+
+div.beige_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 819px;
+    background-color: rgba(255, 202, 140, 0.2);
+    border-radius: 10px;
+    border: solid 2px #36ebeb;
+}
+
+div.aligner {
+    height: 100%;
+    margin-top: 120px;
+}
+
+div.bold_italic_dark_blue_16 {
+    font-family: TimesNewRoman;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #073693;
+}
+
+div.form_container {
+    margin-top: 40px;
+}
+
+div.italic_black_14 {
+    font-family: TimesNewRoman;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 285px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px #36ebeb;
+    padding-left: 11px;
+    margin-bottom: 10px;
+}
+
+div.sign_up_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 170px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 62px;
+    background-color: #44c0c0;
+    border-radius: 5px;
+    color: #fff;
+    font-family: TimesNewRoman;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+div.sign_up_button:hover {
+    cursor: pointer;
+}
+
+div.italic_light_blue_14 {
+    font-family: TimesNewRoman;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: italic;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(7, 54, 147, 0.6);
+    margin-top: 15px;
+}
