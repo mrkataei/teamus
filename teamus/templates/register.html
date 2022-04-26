@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>register</title>
-        <link rel="stylesheet" href="../css/register.css">
-        <link rel="shortcut icon" href="../assets/favicon.svg" type="image/x-icon">
-    </head>
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %}<title>Register</title>{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'css/register.css' %}">{% endblock %}
+{% block content %}
     <body>
-        <div class="header">
-            <div class="home_icon_container"><img src="../assets/home icon.svg" alt="home"></div>
-            <div class="logo"><img src="../assets/logo.svg" alt="teamUs logo"></div>
-        </div>
-
         <div class="main">
             <div class="white_container">
                 <div class="beige_container">
@@ -46,4 +38,4 @@
             </div>
         </div>
     </body>
-</html>
+{% endblock %}

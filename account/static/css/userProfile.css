@@ -35,7 +35,7 @@ div.logo {
 div.white_container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: ;*/
     height: 100%;
     width: 100%;
     background-color: #fffdfd;
@@ -47,9 +47,9 @@ img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
 
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
 }
