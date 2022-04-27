@@ -51,7 +51,7 @@ div.main div.white_container {
     align-items: center;
     height: 600px;
     width: 600px;
-    background-color: #fffdfd;
+    background-color: transparent;
     border-radius: 10px;
 }
 
@@ -61,7 +61,7 @@ div.beige_container {
     align-items: center;
     width: 500px;
     height: 500px;
-    background-color: rgba(255, 202, 140, 0.2);
+    background: #00F260;
     border-radius: 10px;
     border: solid 2px #36ebeb;
 }
