@@ -3,42 +3,35 @@
 {% block title %}<title>Register</title>{% endblock %}
 {% block style %}<link rel="stylesheet" href="{% static 'css/register.css' %}">{% endblock %}
 {% block content %}
-    <body>
-        <div class="main">
-            <div class="white_container">
-                <div class="beige_container">
-                    <div class="aligner">
-                        <div class="bold_italic_dark_blue_16">You have not yet signed up to TeamUs</div>
-                        <div class="italic_light_blue_14">Please complete the information below to register</div>
-                        <div class="form_container">
-                            <form action="{% url 'register' %}" method="post" >
-                                {% csrf_token %}
-                                <div class="italic_black_14">username</div>
-                                <input type="text" name="username" id="username" placeholder="enter your username">
 
-                                <div class="italic_black_14">email</div>
-                                <input type="email" name="email" id="email" placeholder="enter your email">
+<div class="bold_italic_dark_blue_16">You have not yet signed up to TeamUs</div>
+<div class="italic_light_blue_14">Please complete the information below to register</div>
+<div class="form_container">
+    <form action="{% url 'register' %}" method="post" >
+        {% csrf_token %}
+        <div class="italic_black_14">username</div>
+        <input type="text" name="username" id="username" placeholder="enter your username">
 
-                                <div class="italic_black_14">password</div>
-                                <input type="password" name="password1" id="pass" placeholder="enter your password">
+        <div class="italic_black_14">email</div>
+        <input type="email" name="email" id="email" placeholder="enter your email">
 
-                                <div class="italic_black_14">confirm password</div>
-                                <input type="password" name="password2" id="confirm_password" placeholder="enter your password again">
-                                <div class="sign_up_button">
-                                    <input type="submit" value="Sign up" />
-                                </div>
-                                <div>
-                                    {% if messages %}
-                                        {% for message in messages %}
-                                            {{ message }}
-                                        {% endfor %}
-                                    {% endif %}
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="italic_black_14">password</div>
+        <input type="password" name="password1" id="pass" placeholder="enter your password">
+
+        <div class="italic_black_14">confirm password</div>
+        <input type="password" name="password2" id="confirm_password" placeholder="enter your password again">
+
+        <div class="sign_up_button">
+            <input type="submit" value="Sign up" />
         </div>
-    </body>
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </form>
+</div>
+
 {% endblock %}
